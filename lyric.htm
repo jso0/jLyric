@@ -1,0 +1,89 @@
+	<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>huhu</title>
+	<script src="http://libs.baidu.com/jquery/1.8.3/jquery.min.js"></script>
+   
+	<link rel="stylesheet" type="text/css" href="./jLyric.css">
+	<script type="text/javascript" src="./jLyric.js"></script>
+	<script type="text/javascript" src="./jquery.nicescroll.js"></script>
+	</head>
+  <body><div id="bg">
+    </div><div id="clear">
+    </div>
+    <div id="media"><div  style="" id="lrcTable">
+    </div>
+      <audio controls=""  name="media" volume=0.5 id="audio"><source src="" type="audio/mpeg"></audio>
+    </div>
+	</body>
+</html>
+    	<style>  body {
+    margin:0px;
+    padding:0px;
+	color:orangered;
+  }
+  #bg {
+    position:absolute;
+    z-index:-999;
+  -webkit-filter	: blur(1px);
+	padding:0px;
+	margin:0px;
+	width: 100%;
+	height: 100%;
+  background-image: url(http://7bv7e6.com1.z0.glb.clouddn.com/imagevintage_skies_wp_by_vemp-d22oudk.jpg) ;
+	  background-repeat: no-repeat;
+	background-size:100% 100%;
+	
+  background-position: 0 0;
+}
+  #media {
+    margin:0px auto;
+		padding:0px auto;
+		text-align:center;
+  }
+  #a{
+    text-align:center;
+    height:auto;
+    padding:0px;
+    margin: 150px 0px;
+  }
+  div {
+    height:30px;
+    text-align:center;
+    -moz-user-select: none; /* for Firefox */
+    -webkit-user-select: none; /* for Chrome */
+  }
+#clear {
+		margin:0px auto;
+		height:300px;
+		width:auto;
+}
+.current {
+	color:#fff;
+}</style>
+<script>  $(function() {
+var name = '2347371521240064';
+$("#jLyric").niceScroll();
+	$.ajax({
+		type: "get",
+    url: "./"+name+".lrc",
+		//http://nnlife.duapp.com/xiami.php 修改自该api
+		data: "",
+		dataType: "text",
+		beforeSend: function() {},
+		success: function(data) {
+          console.log(data);
+          $("audio").prop("src",'./'+name+'.mp3');
+			opts={displayLine:3,lyricString:data,delayTime:0000};
+          $("#lrcTable").jLyric(opts);
+          $("#lrcTable").niceScroll();
+		},
+		complete: function() {
+        },
+		error: function() {
+			alert("error");
+		}
+	});
+    
+});</script>

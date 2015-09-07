@@ -1,0 +1,25 @@
+#jLyric{
+    text-align:center;
+    height:auto;
+    padding:0px;
+    margin: 0px 0px;
+}
+.current{
+    color:#f00;
+}
+#current{
+    color:#f00;
+}
+div[id^="jLyric-item-"] {
+  line-height:30px;
+}
+
+#lrcTable { 
+    overflow-y:scroll;
+    #overflow-y:hidden;
+    height:30px;
+    cursor:pointer;
+    margin:0px auto;
+    width:660px;
+    -webkit-Alpha(opacity=80);
+}
